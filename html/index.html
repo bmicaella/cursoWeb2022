@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<hmtl lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>HTML EXERCISES</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>HTML EXERCISES</h1>
+        </header>
+        
+        <nav>
+            <a href="index.html">00 - HOME</a>
+            <br>
+            <a href="exercicios/aboutme.html" link-at>01 - ABOUT ME</a>
+            <br>
+            <a href="exercicios/talktome.html" link-at>02 - TALK TO ME</a>
+        </nav>
+
+        <section id="content">
+
+        </section>
+
+        <footer>
+            <br>
+            Developed by Ella with Cod3r
+        </footer>
+    
+        <script>
+            document.querySelectorAll('[link-at]').forEach(link => {
+                const content = document.getElementById('content')
+
+                link.onclick = function(e) {
+                    e.preventDefault()
+                    fetch(link.href) //pegar o href do link
+                        .then(response => response.text())
+                        .then(html => content.innerHTML = html)
+                }
+            })
+        </script>
+    </body>
+
+</hmtl>
